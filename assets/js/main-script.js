@@ -24,7 +24,7 @@ jQuery(document) .ready(function ($) {
 
                         $.each(data, function (i, item) {
 
-                            $('<a>' + item + '</a><br>') .attr('href', item) .appendTo('#' + div);
+                            $('<a target="_blank">' + item + '</a><br>') .attr('href', item) .appendTo('#' + div);
                             $('#' + div).slideDown('slow');
                                
                         });
@@ -36,7 +36,7 @@ jQuery(document) .ready(function ($) {
             } else {
                 console.log(data);
                 $.each(data, function (i, item) {
-                    $('<a>' + item + '</a><br>') .attr('href', item) .prependTo('#' + div);
+                    $('<a target="_blank">' + item + '</a><br>') .attr('href', item) .prependTo('#' + div);
                     ajax_update(id,'yes');
                     button.slideUp('slow');
                     $('#' + div).slideDown('slow');

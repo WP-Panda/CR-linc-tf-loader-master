@@ -2,7 +2,7 @@
 /**
  * Plugin Name: click.tf Linc Loader
  * Description: Плагин разбирает текст и подставляет кнопку со ссылкой согласно алгоритма.
- * Version:  1.0.0
+ * Version:  1.0.1
  * Author: Максим (WP_Panda) Попов
  * Author URI: http://mywordpress.ru/support/profile.php?id=36230
  * License: A "Slug" license name e.g. GPL2
@@ -98,7 +98,7 @@ function my_action_post_callback() {
  echo '<h4>'. __( "К сожалению файл в наcтоящее время не доступен, рекомендуем посмотреть следующие фильмы", "wp_panda" ) .'</h4>';
 if ( $query_my->have_posts() ) : while ( $query_my->have_posts() ) : $query_my->the_post(); ?>
 
-<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></br>
+<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank"><?php the_title(); ?></a></br>
 <?php endwhile; else: 
  endif; 
  wp_reset_query();

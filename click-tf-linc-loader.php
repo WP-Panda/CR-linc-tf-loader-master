@@ -98,3 +98,59 @@ function my_action_post_callback() {
 
 add_action( 'wp_ajax_my_action_post', 'my_action_post_callback' );
 add_action( 'wp_ajax_nopriv_my_action_post', 'my_action_post_callback' );
+
+function like_content($content) {
+	global $post;
+        if( ! is_singular() ) $content = str_replace('pl.jpg', 'ps.jpg', $content);
+return $content;
+}
+add_filter( 'the_content', 'like_content' );
+
+function add_style_cat(){ 
+	if( ! is_singular() )  { ?>
+	<style>
+
+		p.first-p{
+			margin-left:170px;
+		}
+
+		.post_content img {
+		    float: left;
+		    height: auto;
+		    margin-top: -158px;
+		    max-width: 100%;
+		    width: auto;
+		}
+
+		.file-acces {
+		    background-color: #c8c8c8;
+		    color: #fff;
+		    cursor: pointer;
+		    display: inline-block;
+		    font-family: arial;
+		    font-size: 18px;
+		    margin-bottom: 18px;
+		    margin-left: 170px;
+		    padding: 8px 30px;
+		    text-transform: uppercase;
+		}
+
+	</style>
+<?php }
+}
+
+add_action( 'wp_head', 'add_style_cat' );
+
+function add_parag() {
+
+if( ! is_singular()  )  { ?>
+	<script>
+	(function($){
+		$('.file-acces').next('p').addClass('first-p')
+	})(jQuery);
+	</script>
+
+<?php }
+}
+
+add_action( 'wp_footer', 'add_parag' );
